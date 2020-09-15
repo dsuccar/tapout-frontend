@@ -31,8 +31,6 @@ function fetchingBreweries() {
     fetch(URL)
     .then(res => res.json())
     .then(breweries => {
-      console.log("wowow")
-      console.log(breweries)
       dispatch(fetchedBreweries(breweries))
     })
   }
