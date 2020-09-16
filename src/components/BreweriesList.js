@@ -5,11 +5,10 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 
 const BreweriesList = props => {
-  console.log("list's props", props)
+  console.log("list's props",props)
   return(
     <Card>
       <Card.Content>
-       
         {props.breweries.map(brewery => (
           <BreweryListItem
             key={brewery.id}
@@ -21,7 +20,7 @@ const BreweriesList = props => {
   );
 }
 const mapStateToProps = (state) => {
-//  debugger
+
   return{
   breweries: state.breweries.filter(
     b => 

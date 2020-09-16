@@ -3,12 +3,12 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="ui inverted teal menu">
+    <div className="ui inverted brown menu">
       <Link to="/" className="item">
         <h2 className="ui header">
-          <i className="paint brush icon" />
-          <div className="content">Paintr</div>
-          <div className="sub header">Making ur dreams come true</div>
+         
+          <div className="content">TapOut</div>
+          <div className="sub header">Please Drink and Thrive</div>
         </h2>
       </Link>
       <NavLink to="/about" activeClassName="active item" className="item">
@@ -21,6 +21,6 @@ const Navbar = () => {
   );
 };
 
-const NavBarWithRouter = withRouter(Navbar);
 
-export default NavBarWithRouter;
+
+export default withRouter(Navbar);
