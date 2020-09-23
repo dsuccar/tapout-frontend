@@ -45,5 +45,29 @@ function fetchingReviews() {
   }
 }
 
+function fetchedUsers(users){
+  return {
+    type: "FETCHED_USERS", 
+    payload: users
+  }};
 
-export { changeSearchText, fetchedBreweries, fetchingBreweries,fetchingReviews, fetchedReviews};
+
+function fetchingUsers() {
+  const URL = 'http://localhost:3000/users'
+  return (dispatch) => {
+    fetch(URL)
+    .then(res => res.json())
+    .then(users => {
+      dispatch(fetchedUsers(users))
+    })
+  }
+}
+
+
+export { changeSearchText, 
+  fetchedBreweries, 
+  fetchingBreweries,
+  fetchingReviews, 
+  fetchedReviews,
+  fetchingUsers,
+  fetchedUsers};

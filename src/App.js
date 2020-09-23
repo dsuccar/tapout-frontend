@@ -5,7 +5,7 @@ import AboutPage from "./components/AboutPage"
 import Navbar from "./components/Navbar";
 import BreweriesContainer from "./components/BreweriesContainer"
 import {connect} from 'react-redux'
-import {fetchingBreweries, fetchingReviews} from './Redux/actions'
+import {fetchingBreweries, fetchingReviews, fetchingUsers} from './Redux/actions'
 
 
 
@@ -13,13 +13,14 @@ class App extends Component {
 
   componentDidMount(){
     this.props.fetchingBreweries()
+    this.props.fetchingReviews()
+    this.props.fetchingUsers()
   }
 
 
 
   render() {
-    this.props.fetchingReviews()
-    // console.log("app props",this.props)
+    console.log("app.js Props", this.props)
   return (
    <div className="App">
     <Navbar/>
@@ -36,7 +37,8 @@ class App extends Component {
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchingBreweries: (breweries) => {dispatch( fetchingBreweries(breweries) )},
-      fetchingReviews: (reviews) => {dispatch( fetchingReviews(reviews) )}
+      fetchingReviews: (reviews) => {dispatch( fetchingReviews(reviews) )},
+      fetchingUsers: (users) => {dispatch ( fetchingUsers(users) )}
     }
   }
 
