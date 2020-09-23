@@ -14,10 +14,7 @@ class BreweriesContainer extends React.Component {
     return (
       <div>
         <Switch>
-          <Route
-            path="/breweries/:breweryId/edit"
-            component={BreweryForm}
-          />
+         
           <Route
             path="/breweries/:breweryId"
             component={BreweryDetail}

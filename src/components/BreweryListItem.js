@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BreweryListItem = props => {
-  console.log("brewery list item", props)
+  // console.log("brewery list item", props)
 return (
   <Link className="item" to={`/breweries/${props.brewery.id}`}>
     <div className="content">

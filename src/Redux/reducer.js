@@ -21,10 +21,20 @@ const breweriesReducer = (state = [], action) => {
     
       }};
 
+const reviewsReducer = (state = [], action) => {
+  switch (action.type) {
+    case "FETCHED_REVIEWS":
+      return action.payload
+    default:
+      return state;
+    
+      }};
+
 
 const rootReducer = combineReducers({
   searchText: searchTextReducer,
-  breweries: breweriesReducer
+  breweries: breweriesReducer,
+  reviews: reviewsReducer
 });
 
 export default rootReducer;

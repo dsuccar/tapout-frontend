@@ -9,13 +9,6 @@ function changeSearchText(value) {
 }
 
 
-// function updatePainting(){ title, name, birthday, deathday, paintingId } {
-//   return {
-//     type: "UPDATE_BREWERY",
-//     payload: { title, name, birthday, deathday, paintingId}
-//   };
-// }
-
 function fetchedBreweries(breweries){
   return {
     type: "FETCHED_BREWERIES", 
@@ -23,9 +16,7 @@ function fetchedBreweries(breweries){
   }};
 
 
- 
 function fetchingBreweries() {
-  
   const URL = 'http://localhost:3000/breweries'
   return (dispatch) => {
     fetch(URL)
@@ -36,4 +27,23 @@ function fetchingBreweries() {
   }
 }
 
-export { changeSearchText, fetchedBreweries, fetchingBreweries};
+
+function fetchedReviews(reviews){
+  return {
+    type: "FETCHED_REVIEWS", 
+    payload: reviews
+  }};
+
+function fetchingReviews() {
+  const URL = 'http://localhost:3000/reviews'
+  return (dispatch) => {
+    fetch(URL)
+    .then(res => res.json())
+    .then(reviews => {
+      dispatch(fetchedReviews(reviews))
+    })
+  }
+}
+
+
+export { changeSearchText, fetchedBreweries, fetchingBreweries,fetchingReviews, fetchedReviews};

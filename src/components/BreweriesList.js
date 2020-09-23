@@ -2,6 +2,8 @@ import React from "react";
 import BreweryListItem from "./BreweryListItem";
 import {connect} from 'react-redux'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import {Route, Switch, withRouter} from "react-router-dom"
+
 
 
 const BreweriesList = props => {
@@ -30,4 +32,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default  connect(mapStateToProps)(BreweriesList);
+export default  withRouter(connect(mapStateToProps)(BreweriesList));
