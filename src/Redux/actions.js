@@ -1,5 +1,9 @@
 // action creators
-
+function loginUser(user) {
+  return{
+  type: "LOGIN",
+  payload: user
+}}
 
 function changeSearchText(value) {
   return { 
@@ -8,6 +12,12 @@ function changeSearchText(value) {
 };
 }
 
+function changeReviewText(value) {
+  return { 
+    type: "CHANGE_REVIEW_TEXT", 
+    payload: value 
+};
+}
 
 function fetchedBreweries(breweries){
   return {
@@ -70,4 +80,5 @@ export { changeSearchText,
   fetchingReviews, 
   fetchedReviews,
   fetchingUsers,
-  fetchedUsers};
+  fetchedUsers,
+  changeReviewText};

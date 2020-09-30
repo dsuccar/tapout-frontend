@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import BreweriesList from "./BreweriesList";
 import BreweryDetail from "./BreweryDetail";
-import BreweryForm from "./BreweryForm";
+import ReviewEdit from "./ReviewEdit";
 import Searchbar from "./Searchbar";
 import {connect} from 'react-redux'
 
@@ -16,18 +16,21 @@ class BreweriesContainer extends React.Component {
         <Switch>
          
           <Route
-            path="/breweries/:breweryId"
+            exact path="/breweries/:breweryId"
             component={BreweryDetail}
           />
+
+         
           <Route
-            path="/"
+            exact path="/"
             render={() => (
-              <div className="ui narrow container segment">
+              <div >
                 <Searchbar />
                 <BreweriesList />
               </div>
             )}
           />
+          <Route  path="/reviews/:reviewId/edit" component={ReviewEdit}/>
         </Switch>
       </div>
     );
@@ -36,7 +39,6 @@ class BreweriesContainer extends React.Component {
 
 
 
-// Given null for mapStateToProps because doesnt need to read state
 export default BreweriesContainer;
 
 

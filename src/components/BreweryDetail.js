@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment, Header } from 'semantic-ui-react'
 
 
 const BreweryDetail= props => {
@@ -16,8 +16,9 @@ const BreweryDetail= props => {
    
       <Comment.Group>
     <Header as='h3' dividing>
-      Comments
+      Reviews
     </Header>
+   
       {props.reviews.map(review=>
       <Comment>
       <Comment.Content>
@@ -26,16 +27,13 @@ const BreweryDetail= props => {
           <div>{review.created_at}</div>
         </Comment.Metadata>
         <Comment.Text>{review.text}</Comment.Text>
-        <Comment.Actions>
-          <Comment.Action>Reply</Comment.Action>
-        </Comment.Actions>
+        <Link to={`/reviews/${review.id}/edit`}>
+          <button className="ui button">Edit</button>
+        </Link>
       </Comment.Content>
     </Comment>
          )}
   </Comment.Group>
-    
-
- 
 
     </div>
       )
