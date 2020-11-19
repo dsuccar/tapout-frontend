@@ -1,23 +1,29 @@
 import React from "react";
-import {  Form, TextArea } from 'semantic-ui-react'
-
+import {  Button, Form, TextArea } from 'semantic-ui-react'
+// import { changeReviewText } from "../Redux/actions"
 import { connect } from "react-redux";
 
 
 
   
     const ReviewDetails = props => {
-  console.log(props)
-      return( !props.review ? null :(
+  console.log("review edit",props)
   
-      <div>
-        <Form>
-    <TextArea 
-       type="text"
+      return( !props.review ? null :(
 
-       value = {props.review[0].text}
-       />
+      <div>
+       
+        <Form>
+          <TextArea 
+            type="text"
+            value = {props.review.text}
+            onChange={e => props.onChange({input: e.target.value, id:props.review.id})}
+            />
+       
         </Form>
+      
+        <Button type = "submit">Save</Button>
+
      
      </div>
          
@@ -30,15 +36,15 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state, ownProps) => {
   return{
-  review: state.reviews.filter( review => review.id.toString() === ownProps.match.params.reviewId),
-
+  review: state.reviews.find( review => review.id.toString() === ownProps.match.params.reviewId),
+  
 } 
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onChange: (input) => { 
-      dispatch({type: "CHANGE_REVIEW_TEXT", payload: input})
+      dispatch({type: "CHANGE_REVIEW_TEXT", payload: input })
     }  
   }
 }

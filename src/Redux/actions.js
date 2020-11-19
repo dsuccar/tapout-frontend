@@ -1,9 +1,4 @@
-// action creators
-function loginUser(user) {
-  return{
-  type: "LOGIN",
-  payload: user
-}}
+
 
 function changeSearchText(value) {
   return { 
@@ -12,12 +7,31 @@ function changeSearchText(value) {
 };
 }
 
-function changeReviewText(value) {
-  return { 
-    type: "CHANGE_REVIEW_TEXT", 
-    payload: value 
-};
+function changeReviewText(text){
+  return {
+    type: "CHANGE_REVIEW_TEXT",
+    payload: text
+  }
 }
+// function changeReviewText(reeviewId) {
+//   return (dispatch) => {
+// fetch(`http:localhost:3000/reviews/${reviewId}`, {
+//   method: "PATCH",
+//   headers: {
+//     "Content-Type": "application/json"
+// },
+//   body: JSON.stringify({
+//     text:  "string"
+//   })
+// }).then(resp => resp.json())
+// .then(r => {
+//  dispatch(updatedReview(r))})
+  
+// }
+// }
+
+
+
 
 function fetchedBreweries(breweries){
   return {
