@@ -7,7 +7,6 @@ const searchTextReducer = (state = "", action) => {
   
   switch (action.type) {
     case "CHANGE_SEARCH_TEXT":
-      
       return action.payload;
     default:
       return state;
@@ -46,8 +45,21 @@ const reviewsReducer = (state = [], action) => {
     case "FETCHED_REVIEWS":
       return action.payload
     case "CHANGE_REVIEW_TEXT":
-      debugger
-      return action.payload;
+      return state.map(review => {
+        if (review.id === action.payload.id) {
+          return {
+            ...review,
+            text: action.payload.input
+          }
+        }else{
+          return review
+        }
+      })
+      // debugger
+      // let  editedReview = state.find(r => r.id === action.payload.id)
+      // editedReview.text = action.payload.input
+      
+      return [...state];
     default:
       return state;
     
