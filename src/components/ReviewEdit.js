@@ -1,6 +1,6 @@
 import React from "react";
 import {  Button, Form, TextArea } from 'semantic-ui-react'
-// import { changeReviewText } from "../Redux/actions"
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 
@@ -8,8 +8,8 @@ import { connect } from "react-redux";
   
     const ReviewDetails = props => {
   console.log("review edit",props)
-  
-      return( !props.review ? null :(
+
+      return( !props.review && !props.brewery ? null :(
 
       <div>
        
@@ -21,8 +21,10 @@ import { connect } from "react-redux";
             />
        
         </Form>
-      
-        <Button type = "submit">Save</Button>
+        <Link to={`/breweries/${props.review.brewery_id}`}>
+          <Button type = "submit">Save</Button>
+        </Link>
+        
 
      
      </div>
@@ -35,6 +37,7 @@ import { connect } from "react-redux";
 
 
 const mapStateToProps = (state, ownProps) => {
+  // debugger
   return{
   review: state.reviews.find( review => review.id.toString() === ownProps.match.params.reviewId),
   
